@@ -1,0 +1,8 @@
+<h1>Pips</h1>
+
+<ul>
+<li>- pip install django</li>
+<li>- pip install djoser</li>
+<li>- python -m pip install django-cors-headers</li>
+<li>- pip install django-rest-framework</li>
+</ul>
