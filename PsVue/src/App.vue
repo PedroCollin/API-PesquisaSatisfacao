@@ -32,14 +32,7 @@
         </div>
       </div>
     </nav>
-
-    <section class="section">
-      <router-view/>
-    </section>
-
-    <footer class="footer">
-      <p class="has-text-centered">Copyright (Senai) 2021</p>
-    </footer>
+    <router-view/>
   </div>
 </template>
 
