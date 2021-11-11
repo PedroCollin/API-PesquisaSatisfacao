@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import { View, TextInput, Image, TouchableOpacity } from 'react-native';
 import Formulario from '../../components/formulario';
 import styles from './styles';
@@ -6,20 +6,31 @@ import Icon from "react-native-vector-icons/Entypo";
 import api from '../../services/api';
 
 export default class Form extends Component{
+    
+    
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            pergunta: []
-        };
-    }
+    
+    // async componentDidMount() {
 
-    async componentDidMount() {
-        const response = await api.get('/pergunta');
-        this.setState({ pergunta: response.data });
-    }
 
+    //     api.get('http://127.0.0.1:8000/api/v1/Pergunta');
+    //     this.setState({ pergunta: response.data });
+        
+    // }
+    
+      
+      
+    
     render () {
+        //const [quest, setQuest] = useState(null);
+        const getApi = async () => {
+            const axios = require('axios');
+            axios.get('http://127.0.0.1:8000/api/v1/Pergunta').then(response => {
+                console.log(response);
+            })
+            //setQuest = this.state.pergunta[0];
+        }
+        getApi()
         return(
         <View>
             <View style={styles.container}>
@@ -31,7 +42,8 @@ export default class Form extends Component{
                     style={styles.image}
                 ></Image>
             </View>
-            <Formulario title=" 1. Limpeza e conservação da sala de aula e da oficina " />
+            
+            <Formulario title="" />
             <TouchableOpacity style={styles.buttom} 
             onPress={() => this.props.navigation.navigate('Form2')}>
                 <Icon name="chevron-small-right" style={styles.icon}></Icon>
