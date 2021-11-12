@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Feedbacks from '../views/Feedbacks.vue'
 import Dashboard from '../views/dashboard/Dashboard.vue'
 import MyAccount from '../views/dashboard/MyAccount.vue'
 import SignUp from '../views/SignUp.vue'
@@ -19,6 +20,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/feedbacks',
+    name: 'Feedbacks',
+    component: Feedbacks,
   },
   {
     path: '/about',

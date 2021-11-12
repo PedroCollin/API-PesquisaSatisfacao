@@ -1,0 +1,40 @@
+@mixin flexLayout($direction, $justify, $align){
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+main{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    @include flexLayout(row, center, center);
+
+    .view{
+      width: 70%;
+      height: 90%;
+      background-color: #fff;
+      @include flexLayout(column, unset, flex-start);
+      border-radius: 0.95rem;
+      overflow: hidden;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+      .head{
+        background-color: #c22a1f;
+        width: 100%;
+        padding: 10px;
+        h4{
+         color: #fff;
+         font-size: 2.25rem;
+         padding: 10px 30px;
+        }
+      }
+      .content{
+        padding: 20px;
+        background-color: bisque;
+      }
+    }
+}

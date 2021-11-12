@@ -2,21 +2,31 @@
   <div id="wrapper">
     <nav class="navbar is-dark">
       <div class="navbar-brand">
-        <router-link to="/" class="navbar-item"><strong>Senai</strong></router-link>
+        <router-link to="/" class="navbar-item"
+          ><strong>Senai</strong></router-link
+        >
       </div>
 
       <div class="navbar-menu">
         <div class="navbar-end">
           <template v-if="$store.state.isAuthenticated">
-            <router-link to="/dashboard" class="navbar-item">Dashboard</router-link>
-            <router-link to="/dashboard/clients" class="navbar-item">Clients</router-link>
-            <router-link to="/dashboard/invoices" class="navbar-item">Invoices</router-link>
+            <router-link to="/dashboard" class="navbar-item"
+              >Dashboard</router-link
+            >
+            <router-link to="/dashboard/clients" class="navbar-item"
+              >Clients</router-link
+            >
+            <router-link to="/dashboard/invoices" class="navbar-item"
+              >Invoices</router-link
+            >
 
             <div class="navbar-item">
               <div class="buttons">
-                <router-link to="/dashboard/my-account" class="button is-light">My account</router-link>
+                <router-link to="/dashboard/my-account" class="button is-light"
+                  >My account</router-link
+                >
               </div>
-            </div>      
+            </div>
           </template>
 
           <template v-else>
@@ -24,37 +34,44 @@
 
             <div class="navbar-item">
               <div class="buttons">
-                <router-link to="/sign-up" class="button is-success"><strong>Sign up</strong></router-link>
-                <router-link to="/log-in" class="button is-light">Log in</router-link>
+                <router-link to="/sign-up" class="button is-success"
+                  ><strong>Sign up</strong></router-link
+                >
+                <router-link to="/log-in" class="button is-light"
+                  >Log in</router-link
+                >
               </div>
-            </div> 
+            </div>
           </template>
         </div>
       </div>
     </nav>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
-  import axios from 'axios'
+import axios from "axios";
 
-  export default {
-    name: 'App',
-    beforeCreate() {
-      this.$store.commit('initializeStore')
+export default {
+  name: "App",
+  beforeCreate() {
+    this.$store.commit("initializeStore");
 
-      const token = this.$store.state.token
+    const token = this.$store.state.token;
 
-      if (token) {
-        axios.defaults.headers.common['Authorization'] = "Token " + token
-      } else {
-        axios.defaults.headers.common['Authorization'] = ""
-      }
+    if (token) {
+      axios.defaults.headers.common["Authorization"] = "Token " + token;
+    } else {
+      axios.defaults.headers.common["Authorization"] = "";
     }
-  }
+  },
+};
 </script>
 
 <style lang="scss">
-@import '../node_modules/bulma';
+@import "../node_modules/bulma";
+body, html, #app, #wrapper{
+  height: 100%;
+}
 </style>

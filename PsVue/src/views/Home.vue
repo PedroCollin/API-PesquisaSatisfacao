@@ -14,7 +14,7 @@
           <p class="titulo">Bem vindo a Pesquisa</p>
           <p class="titulo">de Satisfação</p>
           <p class="legenda">Dê seu feedback sobre o colégio</p>
-          <button class="btnred">Acessar Formulário</button>
+          <button class="btnred" type="submit">Acessar Formulário</button>
         </div>
 
         <img src="./../assets/media/modelo.png" alt="" />
@@ -101,6 +101,16 @@
 export default {
   name: "Home",
   components: {},
+  methods: {
+    sendEmail() {
+      // ajax({
+      //   type: "POST",
+      //   url: "../../../Api/mailer.py",
+      // }).done(function(o) {
+      //   alert("Rodou")
+      // });
+    },
+  },
 };
 </script>
 
