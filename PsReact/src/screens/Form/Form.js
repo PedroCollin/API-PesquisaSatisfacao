@@ -4,7 +4,7 @@ import Formulario from '../../components/formulario';
 import styles from './styles';
 import Icon from "react-native-vector-icons/Entypo";
 import api from '../../services/api';
-
+const axios = require('axios');
 export default class Form extends Component{
     
     
@@ -24,9 +24,9 @@ export default class Form extends Component{
     render () {
         //const [quest, setQuest] = useState(null);
         const getApi = async () => {
-            const axios = require('axios');
+            
             axios.get('http://127.0.0.1:8000/api/v1/Pergunta').then(response => {
-                console.log(response);
+                console.log(response.data);
             })
             //setQuest = this.state.pergunta[0];
         }

@@ -25,24 +25,42 @@ SECRET_KEY = 'django-insecure-4lkhna8_3n_wom3%9fom&^_$7vz+pi3q$hfy8+m1h6=comuo9j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:19006',
+    'http://localhost:19002',
+    'http://localhost:19000',
+    'http://127.0.0.1:19006',
+    'http://127.0.0.1:19002',
+    'http://127.0.0.1:19000'
 
-CORS_ALLOWED_ORIGINS =[
-    "http://localhost:8080",
-    "http://127.0.0.1:8000",
-    "http://localhost:19006",
-    "http://127.0.0.1:19006",
 ]
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:19006',
+    'http://localhost:19002',
+    'http://localhost:19000',
+    'http://127.0.0.1:19006',
+    'http://127.0.0.1:19002',
+    'http://127.0.0.1:19000'
+    ]
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:19006',
+    'http://localhost:19002',
+    'http://localhost:19000',
+    'http://127.0.0.1:19006',
+    'http://127.0.0.1:19002',
+    'http://127.0.0.1:19000'
+    ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.AllowAny',
-    )
+'DEFAULT_PERMISSION_CLASSES': [
+    #'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly’,
+    'rest_framework.permissions.AllowAny',
+    # 'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ]
 }
-CORS_ORIGIN_ALLOW_ALL = True 
 # Application definition
 
 INSTALLED_APPS = [
@@ -74,6 +92,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsPostCsrfMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
