@@ -24,8 +24,13 @@ export default class Form extends Component{
     render () {
         //const [quest, setQuest] = useState(null);
         const getApi = async () => {
-            
-            axios.get('http://127.0.0.1:8000/api/v1/Pergunta').then(response => {
+            const api = axios.create({
+                baseURL: 'http://127.0.0.1:8000/',
+                headers: {'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Origin': '*'}               
+              });
+
+
+            api.get('api/v1/Pergunta').then(response => {
                 console.log(response.data);
             })
             //setQuest = this.state.pergunta[0];
