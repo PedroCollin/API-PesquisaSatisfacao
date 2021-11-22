@@ -1,12 +1,26 @@
-import * as React from 'react';
+import React, {Component, useState} from 'react';
 import { View, TextInput, Image, TouchableOpacity } from 'react-native';
 import { RadioButton, Text } from 'react-native-paper';
 import { RectButtonProps } from 'react-native-gesture-handler';
 import Formulario from '../../components/formulario';
 import styles from './styles';
 import Icon from "react-native-vector-icons/Entypo";
+import api from '../../services/api';
+const axios = require('axios');
 
 function Form ({navigation}) {
+
+    const [pergunta, setPergunta] = useState('');
+    React.useEffect(() => {
+        getPergunta()
+    }, [])
+    const getPergunta = async () => {
+        const response = await api.get('http://127.0.0.1:8000/api/v1/Pergunta/7/');
+    ;
+  
+        setPergunta(response.data)
+    }
+
     return (
         <View>
             <View style={styles.container}>
@@ -18,7 +32,7 @@ function Form ({navigation}) {
                     style={styles.image}
                 ></Image>
             </View>
-            <Formulario title=" 7. Domínio do docente sobre os assuntos tratados " />
+            <Formulario title={pergunta.id + '. '+ pergunta.pergunta}/>
 
                 <View style={styles.container1}>
                     <TouchableOpacity style={styles.buttom1} 

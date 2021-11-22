@@ -5,7 +5,7 @@ import styles from './styles';
 import Icon from "react-native-vector-icons/Entypo";
 import api from '../../services/api';
 const axios = require('axios');
-export default class Form extends Component{
+export default function form ({navigation}){
     
     
 
@@ -17,26 +17,21 @@ export default class Form extends Component{
     //     this.setState({ pergunta: response.data });
         
     // }
-    
+    const [pergunta, setPergunta] = useState('');
+    React.useEffect(() => {
+        getPergunta()
+    }, [])
+    const getPergunta = async () => {
+        const response = await api.get('http://127.0.0.1:8000/api/v1/Pergunta/1/');
+    ;
+  
+        setPergunta(response.data)
+    }
       
-      
     
-    render () {
-        //const [quest, setQuest] = useState(null);
-        const getApi = async () => {
-            const api = axios.create({
-                baseURL: 'http://127.0.0.1:8000/',
-                headers: {'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Origin': '*'}               
-              });
-
-
-            api.get('api/v1/Pergunta').then(response => {
-                console.log(response.data);
-            })
-            //setQuest = this.state.pergunta[0];
-        }
-        getApi()
-        return(
+    
+    return( 
+        
         <View>
             <View style={styles.container}>
             <View style={styles.rectStack}>
@@ -48,9 +43,9 @@ export default class Form extends Component{
                 ></Image>
             </View>
             
-            <Formulario title="" />
+            <Formulario title={pergunta.id + '. '+ pergunta.pergunta} />
             <TouchableOpacity style={styles.buttom} 
-            onPress={() => this.props.navigation.navigate('Form2')}>
+            onPress={() => navigation.navigate('Form2')}>
                 <Icon name="chevron-small-right" style={styles.icon}></Icon>
              </TouchableOpacity>
             </View>
@@ -58,5 +53,4 @@ export default class Form extends Component{
         
         </View>    
         );
-    };
-}
+};

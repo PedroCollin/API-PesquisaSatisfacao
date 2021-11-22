@@ -28,53 +28,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ORIGIN_WHITELIST = [
-#     'http://localhost:*',
-#     'http://localhost:19006',
-#     'http://localhost:19002',
-#     'http://localhost:19000',
-#     'http://localhost:8000/',
-#     'http://127.0.0.1:8000/',
-#     'http://127.0.0.1:19006',
-#     'http://127.0.0.1:19002',
-#     'http://127.0.0.1:19000'
-
-# ]
-# CORS_ALLOWED_ORIGINS = [
-#     'http://localhost:*',
-#     'http://localhost:19006',
-#     'http://localhost:19002',
-#     'http://localhost:19000',
-#     'http://localhost:8000',
-#     'http://127.0.0.1:8000',
-#     'http://127.0.0.1:19006',
-#     'http://127.0.0.1:19002',
-#     'http://127.0.0.1:19000'
-#     ]
-# CSRF_TRUSTED_ORIGINS = [
-#     'http://localhost:19006',
-#     'http://localhost:19002',
-#     'http://localhost:19000',
-#     'http://localhost:8000',
-#     'http://127.0.0.1:8000',
-#     'http://127.0.0.1:19006',
-#     'http://127.0.0.1:19002',
-#     'http://127.0.0.1:19000'
-#     ]
-
-# CORS_ALLOW_HEADERS = [
-#     # "Access-Control-Allow-Headers",
-#     # "Access-Control-Allow-Origin",
-#     "accept",
-#     "accept-encoding",
-#     "authorization",
-#     "content-type",
-#     "dnt",
-#     "origin",
-#     "user-agent",
-#     "x-csrftoken",
-#     "x-requested-with",
-# ]
 
 REST_FRAMEWORK = {
 'DEFAULT_PERMISSION_CLASSES': [
@@ -114,7 +67,6 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'corsheaders.middleware.CorsPostCsrfMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
