@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'aplications.aluno',
     'aplications.formulario',
     'aplications.dashboard',
+    'aplications.envio'
 
 ]
 

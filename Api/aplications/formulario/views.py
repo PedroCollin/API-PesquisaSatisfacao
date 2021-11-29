@@ -1,6 +1,6 @@
 from .serializers import Formularioserializer, Importanciaserializer, Satisfacaoserializer, Perguntaserializer, \
-    Alunoserializer
-from .models import Aluno, Perguntas, Satisfacao, Importancia, Formulario
+    Alunoserializer, Envioserializer
+from .models import Aluno, Perguntas, Satisfacao, Importancia, Formulario, Envio
 
 from rest_framework import viewsets
 
@@ -28,3 +28,8 @@ class SatisfacaoApi(viewsets.ModelViewSet):
 class ImportanciaApi(viewsets.ModelViewSet):
     queryset = Importancia.objects.all()
     serializer_class = Importanciaserializer
+
+
+class EnvioApi(viewsets.ModelViewSet):
+    queryset = Envio.objects.all()
+    serializer_class = Envioserializer

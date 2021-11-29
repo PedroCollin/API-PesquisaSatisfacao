@@ -9,6 +9,7 @@ router.register("Aluno", views.AlunoApi)
 router.register("Pergunta", views.PerguntaApi)
 router.register("Satisfacao", views.SatisfacaoApi)
 router.register("Importancia", views.ImportanciaApi)
+router.register("Envio", views.EnvioApi)
 
 urlpatterns = [
     path('', include(router.urls))
