@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'aplications.turma',
     'aplications.aluno',
     'aplications.formulario',
+    'aplications.dashboard',
 
 ]
 
