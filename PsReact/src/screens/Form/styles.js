@@ -51,6 +51,17 @@ const styles = StyleSheet.create({
       alignItems: "center",
 
     },
+    buttomM: {
+      width: 66,
+      height: 66,
+      backgroundColor: "rgba(194,42,31,1)",
+      borderRadius: 20,
+      
+      alignSelf: "center",
+      textAlign: "center",
+      alignItems: "center",
+
+    },
     buttom1: {
       width: 66,
       height: 66,
@@ -96,6 +107,14 @@ const styles = StyleSheet.create({
       alignItems: "center",
       paddingLeft: 80,
       paddingRight: 80,
+      marginTop: 20,
+    },
+    container2:{
+      flexDirection: 'row',
+      justifyContent: 'center',
+      textAlign: "center",
+      alignItems: "center",
+
       marginTop: 20,
     },
     

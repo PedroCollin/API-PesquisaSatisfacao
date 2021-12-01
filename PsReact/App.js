@@ -1,5 +1,6 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack'
 
 import Cadastro from './src/screens/cadastro/cadastro';
 import Login from './src/screens/login/login';
@@ -22,6 +23,10 @@ const mainNavigation = createSwitchNavigator({
     // Cadastro,
     // Login,
     Home,
+
+});
+
+const formNavigation = createStackNavigator({
     Form,
     Form2,
     Form3,
@@ -35,8 +40,10 @@ const mainNavigation = createSwitchNavigator({
     Form11,
     Form12,
     Form13,
-});
+})
 
-const App = createAppContainer(mainNavigation);
+const App = createAppContainer(mainNavigation,formNavigation);
+
+
 
 export default App;

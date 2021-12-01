@@ -15,7 +15,7 @@ type Props = RectButtonProps & {
 
 
 
-export default function form ({navigation}){
+export default function Form3 ({navigation}){
     
     
 
@@ -41,6 +41,19 @@ export default function form ({navigation}){
     
     const [importance, setImportance] = React.useState('');
     const [satisfaction, setSatisfaction] = React.useState('');
+    const [feedback, setFeedback] = React.useState("");
+
+
+    const data = async (imp, sat, fb) => {
+        try {
+          await AsyncStorage.setItem("imp4", JSON.stringify(imp));
+          await AsyncStorage.setItem("sat4", JSON.stringify(sat));
+          await AsyncStorage.setItem("fb4", JSON.stringify(fb));
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
     return( 
         
         <View>
@@ -84,6 +97,7 @@ export default function form ({navigation}){
                         placeholder="Digite aqui"
                         multiline={true}
                         numberOfLines={4}
+                        onChangeText={(newValue) => setFeedback(newValue)}
                     />
                 </View>
                 :
@@ -91,18 +105,29 @@ export default function form ({navigation}){
             }
         </View>
         <View style={styles.container1}>
-        <TouchableOpacity style={styles.buttom1} 
-                    onPress={() => navigation.navigate('Form3')}>
-                        <Icon name="chevron-small-left" style={styles.icon}></Icon>
-                    </TouchableOpacity>
-
-            <TouchableOpacity style={styles.buttom} 
-            onPress={() => navigation.navigate('Form5')}>
+        <TouchableOpacity 
+            style={styles.buttom1} 
+            onPress={() => navigation.navigate("Form3")}
+        >
+            <Icon name="chevron-small-left" style={styles.icon}></Icon>
+        </TouchableOpacity>
+        {satisfaction === "" ||
+        importance === "" ||
+        ((satisfaction === "regular" || satisfaction ==="ruim") &&
+        feedback ==="") ? ( 
+            <TouchableOpacity style={styles.buttom}>
                 <Icon name="chevron-small-right" style={styles.icon}></Icon>
              </TouchableOpacity>
-            </View>
-            </View>
-        
-        </View>    
+        ) : (
+            <TouchableOpacity style={styles.buttom} 
+            onPress={() => (
+                data(importance, satisfaction, feedback),navigation.navigate('Form5'))}>
+                <Icon name="chevron-small-right" style={styles.icon}></Icon>
+             </TouchableOpacity>
+        )}
+            </View>  
+        </View>
+        </View>
+ 
         );
 };
