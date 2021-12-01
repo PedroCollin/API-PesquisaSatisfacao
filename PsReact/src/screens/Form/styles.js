@@ -97,7 +97,8 @@ const styles = StyleSheet.create({
       paddingLeft: 80,
       paddingRight: 80,
       marginTop: 20,
-    }
+    },
+    
     
 
   });

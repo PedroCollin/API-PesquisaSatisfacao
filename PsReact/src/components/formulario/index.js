@@ -8,13 +8,13 @@ type Props = RectButtonProps & {
     title: string;
 }
 
-export default function Formulario({ title }: Props) {
+export default function Formulario() {
 
     const [importance, setImportance] = React.useState('');
     const [satisfaction, setSatisfaction] = React.useState('');
     return (
         <View>
-            <Text style={style.titleP}>{title}</Text>
+            <Text style={style.titleP}>{}</Text>
             <RadioButton.Group onValueChange={newValue => setImportance(newValue)} value={importance}>
                 <Text style={style.title}>Nivel de Importância</Text>
                 <View style={{ justifyContent: 'space-around' }}>
