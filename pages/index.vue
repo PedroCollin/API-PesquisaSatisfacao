@@ -230,7 +230,7 @@ export default {
             <h3>Tabela de importância de cada tópico: </h3>
             <table style="width: 100%; display: flex; flex-direction: column;">
               <thead style="padding: 5px; background-color: #c22a1f; color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px;">
-                <tr style="display: flex; justify-content: space-between; border: 1px solid #c22a1f;">
+                <tr style="display: flex; justify-content: space-between;">
                   <th>Tópico</th>
                   <th>` +
         this.stackedData.datasets[0].label +
@@ -243,7 +243,7 @@ export default {
         `</th>
                 </tr>
               </thead>
-              <tbody style="display: flex; flex-direction: column; justify-content: space-between; border: 2px solid #c22a1f; padding: 5px;">
+              <tbody style="display: flex; flex-direction: column; justify-content: space-between; border: 2px solid #c22a1f; padding: 5px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
                 <tr style="display: flex; justify-content: space-between; padding: 5px; border-bottom: 1px solid #c22a1f; padding: 5px; border-bottom: 1px solid #c22a1f">
                   <td><b>` +
         this.stackedData.labels[0] +
