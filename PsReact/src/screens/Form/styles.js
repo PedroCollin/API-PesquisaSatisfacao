@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
       paddingRight: 80,
       marginTop: 20,
     },
+    
     container2:{
       flexDirection: 'row',
       justifyContent: 'center',
@@ -116,6 +117,14 @@ const styles = StyleSheet.create({
       alignItems: "center",
 
       marginTop: 20,
+    },
+    container3:{
+      flexDirection: 'row',
+      justifyContent: 'center',
+      textAlign: "center",
+      alignItems: "center",
+
+      marginTop: 50,
     },
     
     

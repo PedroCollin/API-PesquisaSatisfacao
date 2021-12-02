@@ -1,6 +1,5 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack'
 
 import Cadastro from './src/screens/cadastro/cadastro';
 import Login from './src/screens/login/login';
@@ -18,15 +17,12 @@ import Form10 from './src/screens/form/Form10';
 import Form11 from './src/screens/form/Form11';
 import Form12 from './src/screens/form/Form12';
 import Form13 from './src/screens/form/Form13';
+import enviar from './src/screens/form/enviar';
 
 const mainNavigation = createSwitchNavigator({
     // Cadastro,
-    // Login,
+    Login,
     Home,
-
-});
-
-const formNavigation = createStackNavigator({
     Form,
     Form2,
     Form3,
@@ -40,9 +36,12 @@ const formNavigation = createStackNavigator({
     Form11,
     Form12,
     Form13,
-})
+    enviar
+});
 
-const App = createAppContainer(mainNavigation,formNavigation);
+
+
+const App = createAppContainer(mainNavigation);
 
 
 

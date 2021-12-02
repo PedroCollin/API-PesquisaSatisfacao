@@ -3,7 +3,8 @@ import { StyleSheet, View, TouchableOpacity , Text, Button, Image, TextInput } f
 import Svg, { Ellipse } from "react-native-svg";
 import Icon from "react-native-vector-icons/Feather";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
-import firebase from '../../../firebaseConfig'
+import firebase from '../../../firebaseConfig';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function Login ({navigation}) {
 
@@ -11,11 +12,18 @@ function Login ({navigation}) {
   const [password, setPassword] = useState('');
   const [error , setError] = useState('');
 
+
   const signIn = async() => {
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((userCredential) => {
+    .then(async(userCredential) => {
       
       var user = userCredential.user;
+
+      try{
+        await AsyncStorage.setItem("user", JSON.stringify(email));
+      } catch (e) {
+        // console.log(e);
+      }
     
       navigation.navigate('Home')
     })

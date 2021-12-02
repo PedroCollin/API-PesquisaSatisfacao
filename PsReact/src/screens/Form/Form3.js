@@ -6,6 +6,7 @@ import Formulario from '../../components/formulario';
 import styles from './styles';
 import style from '../../components/formulario/styles'
 import Icon from "react-native-vector-icons/Entypo";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../../services/api';
 const axios = require('axios');
 
@@ -29,7 +30,8 @@ export default function Form3 ({navigation}){
     // }
     const [pergunta, setPergunta] = useState('');
     React.useEffect(() => {
-        getPergunta()
+        getPergunta();
+        getData();
     }, [])
     const getPergunta = async () => {
         const response = await api.get('http://127.0.0.1:8000/api/v1/Pergunta/3/');
@@ -42,7 +44,28 @@ export default function Form3 ({navigation}){
     const [importance, setImportance] = React.useState('');
     const [satisfaction, setSatisfaction] = React.useState('');
     const [feedback, setFeedback] = React.useState("");
+    const getData = () =>{
+        try {
+  
+            AsyncStorage.getItem('imp3')
+            .then(value => {
+               
+                if(value != null){
+                    setImportance(value.replace(/['"]+/g, ''));    
+                }
 
+            })
+            AsyncStorage.getItem('sat3')
+            .then(value => {
+                if(value != null){
+                    setSatisfaction(value.replace(/['"]+/g, ''));    
+                }
+                
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const data = async (imp, sat, fb) => {
         try {
