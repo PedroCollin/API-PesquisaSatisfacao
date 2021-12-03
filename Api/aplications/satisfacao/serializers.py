@@ -6,6 +6,6 @@ class SatisfacaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Satisfacao
         fields = (
-            "nivel",
+            "desc",
 
         )

@@ -7,7 +7,7 @@ from ..pergunta.models import Perguntas
 from ..envio.models import Envio
 
 class Formulario(models.Model):
-    formid=models.IntegerField(primary_key=True)
+    # id=models.IntegerField(primary_key=True, auto_created=True, default=0)
     id_aluno = models.ForeignKey(Aluno, related_name="fk_aluno", on_delete=models.CASCADE)
     id_pergunta = models.ForeignKey(Perguntas, related_name="fk_pergunta", on_delete=models.CASCADE)
     id_satisfacao = models.ForeignKey(Satisfacao, related_name="fk_satisfacao", on_delete=models.CASCADE)

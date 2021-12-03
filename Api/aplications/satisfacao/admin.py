@@ -2,6 +2,9 @@ from django.contrib import admin
 
 from .models import Satisfacao
 
-# Register your models here.
+class displaySatisfacao(admin.ModelAdmin):
+    list_display = ('id','desc')
+    list_filter = ('desc',)
+    search_fields = ('desc',)
 
-admin.site.register(Satisfacao)
+admin.site.register(Satisfacao, displaySatisfacao)

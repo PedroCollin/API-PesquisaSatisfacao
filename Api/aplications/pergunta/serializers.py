@@ -6,6 +6,5 @@ class PerguntasSerializer(serializers.ModelSerializer):
     class Meta:
         model = Perguntas
         fields = (
-            "numero",
             "pergunta",
         )
