@@ -11,3 +11,4 @@ class EmpresaApi(viewsets.ModelViewSet):
 class TurmaApi(viewsets.ModelViewSet):
     queryset = Turma.objects.all()
     serializer_class = Turmaserializer
+    # Link para retornar as turmas cadastradas: http://127.0.0.1:8000/api/v1/Turma/
