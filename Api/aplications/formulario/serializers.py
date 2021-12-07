@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Aluno, Perguntas, Satisfacao, Importancia, Formulario, Envio
+from .models import Aluno, Perguntas, Satisfacao, Importancia, Formulario, Envio, Turma
 
 class Alunoserializer(serializers.ModelSerializer):
     class Meta:
@@ -24,6 +24,10 @@ class Envioserializer(serializers.ModelSerializer):
     class Meta:
         model=Envio
         fields='__all__'
+class Turmaserializer(serializers.ModelSerializer):
+    class Meta:
+        model=Turma
+        fields='__all__'
 
 class Formularioserializer(serializers.ModelSerializer):
     Aluno=Alunoserializer(read_only=True, many=True)
@@ -31,6 +35,7 @@ class Formularioserializer(serializers.ModelSerializer):
     Satisfacao=Satisfacaoserializer(read_only=True, many=True)
     Importancia=Importanciaserializer(read_only=True, many=True)
     Envio=Envioserializer(read_only=True, many=True)
+    Turma=Turmaserializer(read_only=True, many=True)
     class Meta:
         model=Formulario
         fields='__all__'

@@ -2,7 +2,6 @@ from django.db import models
 from ..turma.models import Turma
 
 class Aluno(models.Model):
-    # id = models.IntegerField(primary_key=True, auto_created=True, default=0)
     nome = models.CharField(max_length=60)
     ra = models.CharField(max_length=20)
     cpf = models.CharField(max_length=14)

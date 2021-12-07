@@ -10,6 +10,7 @@ router.register("Pergunta", views.PerguntaApi)
 router.register("Satisfacao", views.SatisfacaoApi)
 router.register("Importancia", views.ImportanciaApi)
 router.register("Envio", views.EnvioApi)
+router.register("Forms", views.QtdFormularios)
 
 urlpatterns = [
     path('', include(router.urls))

@@ -9,6 +9,14 @@ class FormularioApi(viewsets.ModelViewSet):
     queryset = Formulario.objects.all()
     serializer_class = Formularioserializer
 
+class QtdFormularios(viewsets.ModelViewSet):
+    queryset = Formulario.objects.all()
+    
+    queryset = Formulario.objects.filter(
+        id_turma__nome__icontains = '1DES'
+    )
+    
+    serializer_class = Formularioserializer
 
 class AlunoApi(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
