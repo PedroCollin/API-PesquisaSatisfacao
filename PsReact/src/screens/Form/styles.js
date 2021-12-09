@@ -120,13 +120,18 @@ const styles = StyleSheet.create({
     },
     container3:{
       flexDirection: 'row',
-      justifyContent: 'center',
+      justifyContent: 'space-between',
       textAlign: "center",
       alignItems: "center",
-
-      marginTop: 50,
+      paddingLeft: 80,
+      paddingRight: 80,
+      marginTop: 100,
     },
-    
+    cont1:{
+      justifyContent: "space-around",
+      paddingLeft: 33,
+      paddingRight: 33,
+    }
     
 
   });

@@ -21,7 +21,7 @@ import enviar from './src/screens/form/enviar';
 
 const mainNavigation = createSwitchNavigator({
     // Cadastro,
-    Login,
+    // Login,
     Home,
     Form,
     Form2,

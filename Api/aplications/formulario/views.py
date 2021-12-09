@@ -6,17 +6,37 @@ from rest_framework import viewsets
 
 
 class FormularioApi(viewsets.ModelViewSet):
-    queryset = Formulario.objects.all()
-    serializer_class = Formularioserializer
+    
+    def get_queryset(self):
+        queryset = Formulario.objects.all()
+        serializer_class = Formularioserializer
+        return queryset
+        
+    def post(self, request):
+        serializer = Formularioserializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class QtdFormularios(viewsets.ModelViewSet):
-    queryset = Formulario.objects.all()
     
-    queryset = Formulario.objects.filter(
-        id_turma__nome__icontains = '1DES'
-    )
+    def get(self, request):
+        queryset = Formulario.objects.all()
+        
+        queryset = Formulario.objects.filter(
+            id_turma__nome__icontains = '1DES'
+        )
+        
+        serializer_class = Formularioserializer
+        return queryset
     
-    serializer_class = Formularioserializer
+    def post(self, request):
+        serializer = Formularioserializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class AlunoApi(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()

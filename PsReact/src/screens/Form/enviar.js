@@ -68,6 +68,18 @@ export default function Form3({ navigation }) {
             style={styles.image}
           ></Image>
         </View>
+
+
+        <RadioButton.Group
+          onValueChange={(newValue) => setAnonimo(newValue)}
+          value={anonimo}
+        >
+          <Text style={style.title}>Deseja enviar seu formulário anonimamente?</Text>
+          <View style={styles.cont1}>
+            <RadioButton.Item label="Sim" value="Sim" />
+            <RadioButton.Item label="Não" value="Não" />
+          </View>
+        </RadioButton.Group>
         <View style={styles.container3}>
           <TouchableOpacity
             style={styles.buttom1}
@@ -79,20 +91,9 @@ export default function Form3({ navigation }) {
             style={styles.buttom1}
             onPress={() => (navigation.navigate("Home"), data(anonimo), setDataDB(pergunta, user))}
           >
-            <Icon name="chevron-small-left" style={styles.icon}></Icon>
+            <Icon name="chevron-small-right" style={styles.icon}></Icon>
           </TouchableOpacity>
         </View>
-
-        <RadioButton.Group
-          onValueChange={(newValue) => setAnonimo(newValue)}
-          value={anonimo}
-        >
-          <Text style={style.title}>Deseja enviar seu formulário anonimamente?</Text>
-          <View style={{ justifyContent: "space-around" }}>
-            <RadioButton.Item label="Sim" value="Sim" />
-            <RadioButton.Item label="Não" value="Não" />
-          </View>
-        </RadioButton.Group>
       </View>
     </View>
   );
