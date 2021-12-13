@@ -30,10 +30,9 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ORIGIN_ALLOW_ALL = True
 
 REST_FRAMEWORK = {
-'DEFAULT_PERMISSION_CLASSES': [
-    #'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly’,
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_PERMISSION_CLASSES': [
     'rest_framework.permissions.AllowAny',
-    # 'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ]
 }
 # Application definition
@@ -50,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'djoser',
+    'django_filters',
 
     'aplications.pergunta',
     'aplications.empresa',

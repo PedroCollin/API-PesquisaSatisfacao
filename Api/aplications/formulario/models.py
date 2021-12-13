@@ -14,8 +14,9 @@ class Formulario(models.Model):
     id_satisfacao = models.ForeignKey(Satisfacao, related_name="fk_satisfacao", on_delete=models.CASCADE)
     id_importancia = models.ForeignKey(Importancia, related_name="fk_importancia", on_delete=models.CASCADE)
     semestre = models.ForeignKey(Envio, related_name="fk_envio", on_delete=models.CASCADE)
+    ano = models.IntegerField(null=True, blank=True)
     feedback = models.CharField(max_length=500, default="", blank=True)
     
       
     def __str__(self):
-        return str('%s, %s, %s' % (self.id_aluno, self.id_turma, self.id_turma.nome))
+        return str('%s, %s, %s, %s, %s' % (self.id_aluno, self.id_turma.nome, self.id_importancia.desc, self.id_satisfacao.desc, self.id_pergunta.id))
